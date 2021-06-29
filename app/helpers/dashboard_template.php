@@ -26,7 +26,7 @@ class Dashboard_page
     <body>');
         $filename = basename($_SERVER['PHP_SELF']);
         if (isset($_SESSION['id_usuario'])) {
-            if ($filename != 'index.php' && $filename != 'register.php') {
+            if ($filename != 'index.php' && $filename != 'registrar.php') {
                 self::modals();
                 print('    <header>
         <nav class="#bf360c deep-orange darken-4" role="navigation">
@@ -62,7 +62,7 @@ class Dashboard_page
                 header('location: main.php');
             }
         } else {
-            if ($filename != 'index.php' && $filename != 'register.php') {
+            if ($filename != 'index.php' && $filename != 'registrar.php') {
                 header('location: index.php');
             } else {
                 print('    <header>
@@ -175,6 +175,40 @@ class Dashboard_page
                       <div class="row center-align">
                       <a href="#" class="btn waves-effect grey tooltipped modal-close">Cancelar</a>
                       <button type="submit" class="btn waves-effect #bf360c deep-orange darken-4 tooltipped" data-tooltip="Guardar">Guardar</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+          <!-- Componente Modal para mostrar el formulario de cambiar contraseña -->
+          <div id="password-modal" class="modal">
+              <div class="modal-content">
+                  <h4 class="center-align">Cambiar contraseña</h4>
+                  <form method="post" id="password-form">
+                      <div class="row">
+                          <div class="input-field col s12 m6 offset-m3">
+                              <i class="material-icons prefix">security</i>
+                              <input id="clave_actual" type="password" name="clave_actual" class="validate" required/>
+                              <label for="clave_actual">Clave actual</label>
+                          </div>
+                      </div>
+                      <div class="row center-align">
+                          <label>CLAVE NUEVA</label>
+                      </div>
+                      <div class="row">
+                          <div class="input-field col s12 m6">
+                              <i class="material-icons prefix">security</i>
+                              <input id="clave_nueva_1" type="password" name="clave_nueva_1" class="validate" required/>
+                              <label for="clave_nueva_1">Clave</label>
+                          </div>
+                          <div class="input-field col s12 m6">
+                              <i class="material-icons prefix">security</i>
+                              <input id="clave_nueva_2" type="password" name="clave_nueva_2" class="validate" required/>
+                              <label for="clave_nueva_2">Confirmar clave</label>
+                          </div>
+                      </div>
+                      <div class="row center-align">
+                          <a href="#" class="btn waves-effect grey tooltipped modal-close" data-tooltip="Cancelar"><i class="material-icons">cancel</i></a>
+                          <button type="submit" class="btn waves-effect blue tooltipped" data-tooltip="Guardar"><i class="material-icons">save</i></button>
                       </div>
                   </form>
               </div>
