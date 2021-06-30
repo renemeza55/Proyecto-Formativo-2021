@@ -4,7 +4,6 @@ require_once('../../app/helpers/dashboard_template.php');
 // Se imprime la plantilla del encabezado enviando el título de la página web.
 Dashboard_Page::headerTemplate('Iniciar Sesion');
 ?>
-
 <div class="container">
     <div class="row">
         <!-- Formulario para iniciar sesión -->
@@ -25,8 +24,6 @@ Dashboard_Page::headerTemplate('Iniciar Sesion');
         </form>
     </div>
 </div>
-
-
 <?php
 // Se imprime la plantilla del pie enviando el nombre del controlador para la página web.
 Dashboard_Page::footerTemplate('index.js');

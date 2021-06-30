@@ -28,7 +28,7 @@ class Dashboard_page
         if (isset($_SESSION['id_usuario'])) {
             if ($filename != 'index.php' && $filename != 'registrar.php') {
                 self::modals();
-                print('    <header>
+                print('   <header>
         <nav class="#bf360c deep-orange darken-4" role="navigation">
             <div class="nav-wrapper">
                 <li class="material-icons">build</li> <a href="">Dashboard</a>
@@ -216,6 +216,3 @@ class Dashboard_page
       ');
     }
 }
-/*
-
-*/
