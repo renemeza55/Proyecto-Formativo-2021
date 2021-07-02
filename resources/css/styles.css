@@ -34,3 +34,7 @@ body {
       background-size: cover;
   }
 
+  div {
+      background: rgb(119, 11, 11);
+      width: 400px;
+  }
