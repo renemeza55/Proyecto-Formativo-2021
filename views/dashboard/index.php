@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase con las plantillas del documento.
-require_once('../../app/helpers/dashboard_template.php');
+require_once("../../app/helpers/dashboard_template.php");
 // Se imprime la plantilla del encabezado enviando el título de la página web.
 Dashboard_Page::headerTemplate('Iniciar Sesion');
 ?>
@@ -24,6 +24,9 @@ Dashboard_Page::headerTemplate('Iniciar Sesion');
         </form>
     </div>
 </div>
+
+
+
 <?php
 // Se imprime la plantilla del pie enviando el nombre del controlador para la página web.
 Dashboard_Page::footerTemplate('index.js');

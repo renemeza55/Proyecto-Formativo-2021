@@ -30,7 +30,7 @@ class Public_Page {
                     <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="index.php">Inicio</a></li>
-                        <li><a href="reservaciones.php">Revervaciones</a></li>
+                        <li><a href="reservaciones.php">Reservaciones</a></li>
                         <li><a href="menu.php">Menú</a></li>
                         <li><a href="acerca.php" class="btn white brown-text waves-effect waves-white-grey lighten-1" >Acerca de nosotros</a></li>
                     </ul>
@@ -39,7 +39,7 @@ class Public_Page {
         </div>
         <ul class="sidenav" id="nav-mobile">
         <li><a href="index.php">Inicio</a></li>
-        <li><a href="reservaciones.php">Revervaciones</a></li>
+        <li><a href="reservaciones.php">Reservaciones</a></li>
         <li><a href="menu.php">Menú</a></li>
         <li><a href="acerca.php" class="btn white brown-text waves-effect waves-white-grey lighten-1" >Acerca de nosotros</a></li>
         </ul>
@@ -84,12 +84,12 @@ class Public_Page {
                 </div>
             </div>
         </footer>
-        ' . $scripts . '
+        
         </body>
         </html>');
     
     }
-}
+}  
 ?>
 
   
