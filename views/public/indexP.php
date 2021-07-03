@@ -28,7 +28,7 @@ Public_Page::headerTemplate('Inicio');
             <p>Échale un ojo a nuestras deliciosas comidas.</p>
           </div>
           <div class="card-action">
-            <a class="orange-text" href="#">Ver el menú...</a>
+            <a class="orange-text" href="#">Ver el menú..</a>
           </div>
         </div>
       </div>
