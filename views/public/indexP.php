@@ -37,7 +37,7 @@ Public_Page::headerTemplate('Inicio');
       <div class="col s12 l4 m6">
       <div class="card">
           <div class="card-image">
-            <img src="../../resources/img/comida.jpg" alt="">
+            <img src="../../resources/img/mamafina9.jpg" alt="">
             <a href="#" class="btn-floating #bf360c deep-orange darken-4">
               <i class="material-icons">book</i>
             </a>
