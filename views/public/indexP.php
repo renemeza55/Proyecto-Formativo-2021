@@ -11,7 +11,7 @@ Public_Page::headerTemplate('Inicio');
 <img src="../../resources/img/banner.png" alt="">
 </div>
 
-<hr style="border: none; border-bottom: 100px solid white;">
+<hr style="border: none; border-bottom: 30px solid white;">
 <div class="center-align">  
   <div class="row center-align">
     <div class="col s12 l4 m6">
