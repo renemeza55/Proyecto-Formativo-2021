@@ -6,13 +6,7 @@ require_once('../../app/helpers/header_template.php');
 Public_Page::headerTemplate('Inicio');
 ?>
 
-<div class="carousel">
-    <a class="carousel-item" href="#one!"><img src="../../resources/img/comida.jpg"></a>
-    <a class="carousel-item" href="#two!"><img src="../../resources/img/mamafina6.jpg"></a>
-    <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
-    <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
-    <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-  </div>
+
 
 <hr style="border: none; border-bottom: 100px solid white;">
 <div class="center-align">  
