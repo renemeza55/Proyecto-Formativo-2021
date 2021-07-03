@@ -6,11 +6,13 @@ require_once('../../app/helpers/header_template.php');
 Public_Page::headerTemplate('Inicio');
 ?>
 
-<div class="slider">
-  <ul class="slides">
-
-  </ul>
-</div>
+<div class="carousel">
+    <a class="carousel-item" href="#one!"><img src="../../resources/img/comida.jpg"></a>
+    <a class="carousel-item" href="#two!"><img src="../../resources/img/mamafina6.jpg"></a>
+    <a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
+    <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
+    <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
+  </div>
 
 <hr style="border: none; border-bottom: 100px solid white;">
 <div class="center-align">  
@@ -18,7 +20,7 @@ Public_Page::headerTemplate('Inicio');
     <div class="col s12 l4 m6">
         <div class="card">
           <div class="card-image">
-            <img src="../../resources/img/comida.jpg" alt="">
+            <img src="../../resources/img/mamafina8.jpg" alt="">
             <a href="#" class="btn-floating #bf360c deep-orange darken-4">
               <i class="material-icons">free_breakfast</i>
             </a>
@@ -28,7 +30,7 @@ Public_Page::headerTemplate('Inicio');
             <p>Échale un ojo a nuestras deliciosas comidas.</p>
           </div>
           <div class="card-action">
-            <a class="orange-text" href="#">Ver el menú..</a>
+            <a class="orange-text" href="menu.php">Ver el menú..</a>
           </div>
         </div>
       </div>
@@ -45,14 +47,14 @@ Public_Page::headerTemplate('Inicio');
             <p>Haz una reservacion de tu visita a nuestras instalaciones</p>
           </div>
           <div class="card-action">
-            <a href="#">Hacer una reservación...</a>
+            <a href="reservaciones.php">Hacer una reservación...</a>
           </div>
         </div>
       </div>
       <div class="col s12 l4 m6">
         <div class="card">
           <div class="card-image">
-            <img src="../../resources/img/comida.jpg" alt="">
+            <img src="../../resources/img/Mamafina7.jpg" alt="">
             <a href="#" class="btn-floating #bf360c deep-orange darken-4">
               <i class="material-icons">crop_original</i>
             </a>
@@ -62,7 +64,7 @@ Public_Page::headerTemplate('Inicio');
             <p>Mira el contenido multimedia de nuestras instalaciones y fiestas especiales.</p>
           </div>
           <div class="card-action">
-            <a href="#">Ver más...</a>
+            <a href="contenidoMulti.php">Ver más...</a>
           </div>
   </div>
 </div>
@@ -153,6 +155,36 @@ Celebración de 15 años, bodas, cumpleaños, baby shower, bautizos, capacitacio
     <!-- Título del contenido principal -->
     <h4 class="center" id="title">Platillos del día</h4>
 </div>
+<div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="../../resources/img/horchata.jpg">
+          <span class="card-title">Bebida</span>
+        </div>
+        <div class="card-content">
+          <p> Refresco de horchata</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="../../resources/img/menux.jpg">
+          <span class="card-title">Menu</span>
+        </div>
+        <div class="card-content">
+          <p> Elige entre tres diferentes platillos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
 
 
 

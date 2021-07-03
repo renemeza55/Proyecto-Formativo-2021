@@ -26,10 +26,10 @@ class Public_Page {
         <div class="navbar-fixed">
             <nav class="#bf360c deep-orange darken-4" role="navigation">
                 <div class="nav-wrapper">
-                    <a href="index.php" class="brand-logo"><img src="../../resources/img/logo.png" height="60"></a>
+                    <a href="indexP.php" class="brand-logo"><img src="../../resources/img/logo.png" height="60"></a>
                     <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="index.php">Inicio</a></li>
+                        <li><a href="indexP.php">Inicio</a></li>
                         <li><a href="reservaciones.php">Reservaciones</a></li>
                         <li><a href="menu.php">Menú</a></li>
                         <li><a href="acerca.php" class="btn white brown-text waves-effect waves-white-grey lighten-1" >Acerca de nosotros</a></li>
