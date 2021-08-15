@@ -1,13 +1,13 @@
 <?php
 
-class dataBase{
+class Database{
     private static $connection = null;
     private static $statement = null;
     private static $error = null;
 
     private static function connect(){
         $server = 'localhost';
-        $database = 'MamaFina2';
+        $database = 'MamaFina1';
         $username = 'postgres';
         $password = 'renemeza56';
 

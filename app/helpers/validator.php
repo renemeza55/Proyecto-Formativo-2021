@@ -293,7 +293,7 @@ class Validator
             // Se comprueba que la ruta en el servidor exista.
             if (file_exists($path)) {
                 // Se verifica que el archivo sea movido al servidor.
-                if (move_uploaded_file($file['tmp_name'], $path. $name)) {
+                if (move_uploaded_file($file['tmp_name'], $path.$name)) {
                     return true;
                 } else {
                     return false;

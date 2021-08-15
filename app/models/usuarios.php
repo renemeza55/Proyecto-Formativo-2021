@@ -8,12 +8,13 @@ class Usuarios extends Validator
     private $id = null;
     private $nombres = null;
     private $apellidos = null;
-    private $usuario =null;
     private $clave = null;
-    private $codigo = null;
-    private $email =null;
-    private $estado =null;
-    
+    private $dui=null;
+    private $fecha_nac=null;
+    private $telefono=null;
+    private $email=null;
+    private $apodo_usuario=null;
+
     /*
     *   Métodos para validar y asignar valores de los atributos.
     */
@@ -46,21 +47,37 @@ class Usuarios extends Validator
             return false;
         }
     }
-
-    public function setUsuario($value)
+    public function setClave($value)
     {
-        if ($this->validateAlphanumeric($value, 1, 50)) {
-            $this->usuario = $value;
+        if ($this->validatePassword($value)) {
+            $this->clave = $value;
             return true;
         } else {
             return false;
         }
     }
-
-    public function setClave($value)
+    public function setDUI($value)
     {
-        if ($this->validatePassword($value)) {
-            $this->clave = $value;
+        if ($this->validateDUI($value)) {
+            $this->dui = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function setNacimiento($value)
+    {
+        if ($this->validateDate($value)) {
+            $this->fecha_nac = $value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function setTelefono($value)
+    {
+        if ($this->validatePhone($value)) {
+            $this->telefono = $value;
             return true;
         } else {
             return false;
@@ -76,16 +93,19 @@ class Usuarios extends Validator
             return false;
         }
     }
+    
 
-    public function setEstado($value)
+    public function setAlias($value)
     {
-        if ($this->validateNaturalNumber($value)) {
-            $this->estado = $value;
+        if ($this->validateAlphanumeric($value, 1, 50)) {
+            $this->apodo_usuario = $value;
             return true;
         } else {
             return false;
         }
     }
+
+ 
 
     /*
     *   Métodos para obtener valores de los atributos.
@@ -104,10 +124,21 @@ class Usuarios extends Validator
     {
         return $this->apellidos;
     }
-
     public function getClave()
     {
         return $this->clave;
+    }
+    public function getDUI()
+    {
+        return $this->dui;
+    }
+    public function getNacimiento()
+    {
+        return $this->fecha_nac;
+    }
+    public function getTelefono()
+    {
+        return $this->telefono;
     }
 
     public function getCorreo()
@@ -115,14 +146,9 @@ class Usuarios extends Validator
         return $this->email;
     }
 
-    public function getUsuario()
+    public function getAlias()
     {
-        return $this->usuario;
-    }
-
-    public function getEstado()
-    {
-        return $this->estado;
+        return $this->apodo_usuario;
     }
 
     
@@ -130,19 +156,14 @@ class Usuarios extends Validator
     /*
     *   Métodos para gestionar la cuenta del usuario.
     */
-    public function checkUser($usuario)
+    public function checkUser($apodo_usuario)
     {
-        $sql = 'SELECT id_usuario,id_estado_usuario FROM usuarios
-        WHERE usuario = ?';
-        $params = array($usuario);
-
-        if ($data = dataBase::getRow($sql, $params)) {
-
+        $sql = 'SELECT id_usuario FROM usuarios WHERE apodo_usuario = ?';
+        $params = array($apodo_usuario);
+        if ($data = Database::getRow($sql, $params)) {
             $this->id = $data['id_usuario'];
-            $this->estado = $data['id_estado_usuario'];
-            $this->usuario = $usuario;
+            $this->alias = $alias;
             return true;
-
         } else {
             return false;
         }
@@ -150,28 +171,23 @@ class Usuarios extends Validator
 
     public function checkPassword($password)
     {
-        try{
-            $sql = 'SELECT clave FROM usuarios WHERE usuario = ?';
-            $params = array($this->usuario);
-            $data = dataBase::getRow($sql, $params);
-
-            if (password_verify($password, $data['clave'])) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception $error){
-
-            die("Error al veificar Clave, Login/Models: ".$error ->getMessage()); 
+        $sql = 'SELECT clave FROM usuarios WHERE id_usuario = ?';
+        $params = array($this->id);
+        $data = Database::getRow($sql, $params);
+        // Se verifica si la contraseña coincide con el hash almacenado en la base de datos.
+        if (password_verify($password, $data['clave'])) {
+            return true;
+        } else {
+            return false;
         }
     }
 
-    public function changePassword($id)
+    public function changePassword()
     {
         // Se transforma la contraseña a una cadena de texto de longitud fija mediante el algoritmo por defecto.
-        $hash = password_hash('mamafina', PASSWORD_DEFAULT);
+        $hash = password_hash($this->clave, PASSWORD_DEFAULT);
         $sql = 'UPDATE usuarios SET clave = ? WHERE id_usuario = ?';
-        $params = array($hash, $id);
+        $params = array($hash, $_SESSION['id_usuario']);
         return Database::executeRow($sql, $params);
     }
     public function readProfile()
@@ -205,26 +221,21 @@ class Usuarios extends Validator
         return Database::getRows($sql, $params);
     }
 
-    public function createRow(){
+    public function createRow()
+    {
         // Se transforma la contraseña a una cadena de texto de longitud fija mediante el algoritmo por defecto.
-        $hash = password_hash('mamafina', PASSWORD_DEFAULT);
-        $sql = 'INSERT INTO usuarios(nombres,apellidos,clave,email,id_estado_usuario,usuario)
-                VALUES (?,?,?,?,?,?)';
-        $params = array($this->nombres, $this->apellidos,$hash,$this->email,1,$this->usuario);
-        return dataBase::executeRow($sql, $params);
+        $hash = password_hash($this->clave, PASSWORD_DEFAULT);
+        $sql = 'INSERT INTO usuarios(nombres, apellidos,dui,fecha_nac,telefono,email,apodo_usuario,clave)
+                VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->nombres, $this->apellidos, $this->dui, $this->fecha_nac,$this->telefono,$this->email,$this->apodo_usuario, $hash);
+        return Database::executeRow($sql, $params);
     }
 
-    public function updateEstado($id){
-        $sql = 'UPDATE usuarios
-        SET id_estado_usuario = ?
-        WHERE id_usuario = ?';
-        $params = array(3,$id);
-        return dataBase::executeRow($sql, $params);
-    }
-
-    public function readAll() {
-        $sql = 'SELECT u.id_usuario,u.usuario,u.nombres,u.apellidos,u.email,u.id_estado_usuario,e.estado_usuario FROM usuarios u, estado_usuario e
-                WHERE u.id_estado_usuario = e.id_estado_usuario';
+    public function readAll()
+    {
+        $sql = 'SELECT id_usuario, nombres, apellidos,dui,fecha_nac,telefono,email,apodo_usuario
+                FROM usuarios
+                ORDER BY apellidos_usuario';
         $params = null;
         return Database::getRows($sql, $params);
     }
@@ -238,13 +249,13 @@ class Usuarios extends Validator
         return Database::getRow($sql, $params);
     }
 
-    public function updateRow($value){
-        $sql = 'UPDATE usuarios
-        SET nombres = ?, apellidos = ?, email = ?,id_estado_usuario = ?
-        WHERE id_usuario = ?';
-
-        $params = array($this->nombres, $this->apellidos, $this->email, $this->estado, $value);
-        return dataBase::executeRow($sql, $params);
+    public function updateRow()
+    {
+        $sql = 'UPDATE usuarios 
+                SET nombres = ?, apellidos = ?, dui = ?, telefono=?, email=?
+                WHERE id_usuario = ?';
+        $params = array($this->nombres, $this->apellidos, $this->dui,$this->telefono,$this->email, $this->id);
+        return Database::executeRow($sql, $params);
     }
 
     public function deleteRow()
