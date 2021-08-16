@@ -112,7 +112,7 @@ class Dashboard_page{
             <script type="text/javascript" src="../../helpers/components.js"></script>
             <script type="text/javascript" src="../../controllers/private/account.js"></script>
             <script type="text/javascript" src="../../controllers/iniciar.js"></script>
-            <script type="text/javascript" src="../../controllers/private/'. $controller .'.js"></script>';
+            <script type="text/javascript" src="../../controllers/private/'. $controller .'"></script>';
         } else {
 
             $scripts = '<script type="text/javascript" src="../../resources/js/materialize.min.js"></script>

@@ -74,6 +74,17 @@
                     $result['exception'] = 'Acción no disponible fuera de la sesión';
             }
         }
+        case 'comprasMasRecientes':
+            if ($result['dataset'] = $compras->comprasMasRecientes()) {
+                $result['status'] = 1;
+            } else {
+                if (Database::getException()) {
+                    $result['exception'] = Database::getException();
+                } else {
+                    $result['exception'] = 'No hay cliente registrado';
+                }
+            }
+            break;
         // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
         header('content-type: application/json; charset=utf-8');
         // Se imprime el resultado en formato JSON y se retorna al controlador.

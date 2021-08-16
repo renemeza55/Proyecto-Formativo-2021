@@ -123,5 +123,12 @@
             }
         }
 
+        public function comprasMasRecientes()
+        {
+            $sql = 'SELECT fecha_bitacora, count(id_bitacora) cantidad from bitacora_compras group by fecha_bitacora order by fecha_bitacora desc limit 10';
+            $params = null;
+            return Database::getRows($sql, $params);
+        }
+
     }
 ?>
