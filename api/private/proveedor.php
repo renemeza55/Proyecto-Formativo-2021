@@ -14,6 +14,22 @@
         if (isset($_SESSION['id'])) { 
             // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
             switch ($_GET['action']) {
+                case 'comprasMasRecientes':
+                    if($model->setId($_POST['id_proveedor'])){
+                        if ($result['dataset'] = $model->comprasMasRecientes()) {
+                            $result['status'] = 1;
+                        } else {
+                            if (Database::getException()) {
+                                $result['exception'] = Database::getException();
+                            } else {
+                                $result['exception'] = 'No hay registros';
+                            }
+                        }
+                    }else{
+                        $result['exception'] = 'Proveedor incorrecto';
+                    }
+                break;
+                
                 case 'update': 
                     $_POST = $model->validateForm($_POST);
                     if($model->setPro($_POST['name'])){

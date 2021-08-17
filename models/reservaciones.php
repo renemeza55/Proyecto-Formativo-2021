@@ -206,6 +206,13 @@
             $params = array($this->descripcion,4,$value);
             return dataBase::getRows($sql, $params);
         }
+
+        public function reservacionesMasRecientes()
+    {
+        $sql = 'SELECT dia, count(id_reservacion) cantidad from reservaciones  group by dia order by dia desc limit 10';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
     }
 
 ?>

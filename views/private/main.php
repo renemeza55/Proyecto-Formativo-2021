@@ -11,7 +11,7 @@ Dashboard_Page::headerTemplate('Bienvenidos');
 <div class="row">
     <div class="col s12 m6">
         <!-- Se muestra una gráfica  con la cantidad de productos por categoría -->
-        <canvas id="chart5"></canvas>
+        <canvas id="chart1"></canvas>
     </div>
     <div class="col s12 m6">
         <!-- Se muestra una gráfica de pastel con el porcentaje de productos por categoría -->
@@ -23,5 +23,5 @@ Dashboard_Page::headerTemplate('Bienvenidos');
 
 <?php
 // Se imprime la plantilla del pie enviando el nombre del controlador para la página web.
-Dashboard_Page::footerTemplate('index.js');
+Dashboard_Page::footerTemplate('main.js');
 ?>

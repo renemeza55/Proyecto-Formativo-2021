@@ -88,5 +88,13 @@
             }
         }
 
+        public function comprasMasRecientes()
+        {
+            $sql = 'SELECT fecha_bitacora, count(id_bitacora) cantidad from bitacora_compras
+             inner join proveedores using (id_proveedor) WHERE id_proveedor = ? 
+            group by fecha_bitacora order by fecha_bitacora desc limit 10';
+            $params = array($this->id);;
+            return Database::getRows($sql, $params);
+        }
     }
 ?>

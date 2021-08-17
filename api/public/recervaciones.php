@@ -14,6 +14,17 @@
         if (isset($_SESSION['id'])) { 
             // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
             switch ($_GET['action']) {
+                case 'reservacionesMasRecientes':
+                    if ($result['dataset'] = $model->reservacionesMasRecientes()) {
+                        $result['status'] = 1;
+                    } else {
+                        if (Database::getException()) {
+                            $result['exception'] = Database::getException();
+                        } else {
+                            $result['exception'] = 'No hay registros';
+                        }
+                    }
+                    break;
                 case 'create':
 
                     $_POST = $model->validateForm($_POST);
