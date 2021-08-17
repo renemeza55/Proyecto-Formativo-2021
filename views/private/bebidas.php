@@ -20,6 +20,7 @@ Dashboard_Page::headerTemplate('Administrar bebidas');
         </form>
         <a onClick="openModal();" class="modal-trigger waves-effect waves-light btn">
             <i class="material-icons left">add</i>Nuevo
+            <a href="../../app/reports/private/bebidas_tipo.php" target="_blank" class="btn waves-effect amber tooltipped" data-tooltip="Reporte de bebidas según tipo"><i class="material-icons">assignment</i></a>
         </a>
         <table class="responsive-table highlight">
             <thead>

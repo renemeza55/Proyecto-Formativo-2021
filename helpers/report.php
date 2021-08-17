@@ -1,6 +1,6 @@
 <?php
-require('../../helpers/database.php');
-require('../../helpers/validator.php');
+require('../helpers/database.php');
+require('../helpers/validator.php');
 require('../../../libraries/fpdf182/fpdf.php');
 
 /**
@@ -38,7 +38,7 @@ class Report extends FPDF
             $this->AliasNbPages();
             // Se establece la ruta
         } else {
-            header('location: ../../../views/dashboard/index.php');
+            header('location: ../../../views/private/index.php');
         }
     }
 
@@ -49,7 +49,7 @@ class Report extends FPDF
     public function Header()
     {
         // Se establece el logo.
-        $this->Image('../../../resources/img/logo.jpg', 15, 15, 20);
+        $this->Image('../../../resources/img/logo.png', 15, 15, 20);
         // Se ubica el título.
         $this->Cell(20);
         $this->SetFont('Arial', 'B', 15);
@@ -60,7 +60,7 @@ class Report extends FPDF
         $this->Cell(166, 10, 'Fecha/Hora: '.date('d-m-Y H:i:s'), 0, 1, 'C');
         // Se ubica el nombre del usuario que iniciado sesión 
         $this->Cell(20);
-        $this->Cell(166, 10, 'Usuario: '.$_SESSION['apodo_usuario'], 0, 1, 'C');
+        $this->Cell(166, 10, 'Usuario: '.$_SESSION['usuario'], 0, 1, 'C');
         // Se agrega un salto de línea para mostrar el contenido principal del documento.
         $this->Ln(10);
     }
