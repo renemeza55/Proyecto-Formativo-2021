@@ -84,10 +84,13 @@ function graphModal(id_proveedor) {
                         fecha_bitacora.push(row.fecha_bitacora);
                         cantidad.push(row.cantidad)
                     });
+                    document.getElementById('proveedor').innerHTML = '';
+                    document.getElementById('proveedor').innerHTML = '<canvas id="chart1"></canvas>';
                     // Se llama a la función que genera y muestra una gráfica de linea . Se encuentra en el archivo components.js
                     barGraph('chart1', fecha_bitacora, cantidad,'Cantidad de compras', 'Top 10 de fechas con más compras');
                 //Si no se cumple, se borra la gráfica y no la muestra
                 } else {
+                    document.getElementById('mensaje_proveedor').textContent = response.exception;
                     document.getElementById('chart1').remove();
                 }
             });

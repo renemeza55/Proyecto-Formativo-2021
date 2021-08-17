@@ -208,11 +208,21 @@
         }
 
         public function reservacionesMasRecientes()
-    {
+        {
         $sql = 'SELECT dia, count(id_reservacion) cantidad from reservaciones  group by dia order by dia desc limit 10';
         $params = null;
         return Database::getRows($sql, $params);
-    }
+        }
+
+        public function readReservacionesocasion()
+        {
+            $sql = 'SELECT descripcion, dia, horario, personas
+            FROM reservaciones 
+            WHERE id_reservacion=?
+            ORDER BY dia asc';
+            $params = array($this->id);
+            return Database::getRows($sql, $params);
+        }
     }
 
 ?>

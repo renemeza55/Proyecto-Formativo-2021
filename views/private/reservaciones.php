@@ -21,6 +21,7 @@ Dashboard_Page::headerTemplate('Administrar reservaciones');
         <a onClick="openModal();" class="modal-trigger waves-effect waves-light btn">
             <i class="material-icons left">add</i>Nuevo
         </a>
+        <a href="../../app/reports/private/reservaciones_ocasion.php" target="_blank" class="btn waves-effect amber tooltipped" data-tooltip="Reporte de reservaciones según ocasión"><i class="material-icons">assignment</i></a>
         <table class="responsive-table highlight">
             <thead>
                 <tr>

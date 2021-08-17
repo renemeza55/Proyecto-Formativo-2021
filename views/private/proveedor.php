@@ -69,7 +69,8 @@ Dashboard_Page::headerTemplate('Administrar proveedores');
     <div class="modal-content">
         <div class="row">
             <h4>Gráfica de proveedores</h4>
-            <div class="col s12">
+            <div id="proveedor" class="col s12">
+                <p id="mensaje_proveedor"></p>
                 <!-- Se muestra una gráfica  con la cantidad de productos por categoría -->
                 <canvas id="chart1"></canvas>
             </div>

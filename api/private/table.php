@@ -151,7 +151,7 @@
                                 <a onClick="updateModal('.$id.','.$nombre.','.$desc.');"class="btn-floating btn-Medium waves-effect waves-light yellow">
                                     <i class="material-icons">border_color</i>
                                 </a>
-                                <a onClick="graphModal('.$id.');"class="btn-floating btn-Medium waves-effect waves-light yellow">
+                                <a onClick="graphModal('.$data["id_proveedor"].');"class="btn-floating btn-Medium waves-effect waves-light yellow">
                                 <i class="material-icons">border_color</i>
                             </a>
                             </td>
