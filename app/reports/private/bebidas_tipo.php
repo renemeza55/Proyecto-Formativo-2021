@@ -16,7 +16,7 @@ if ($dataBebidas = $bebida->readAll()) {
         // Se establece un color de relleno para mostrar el nombre de la categoría.
         $pdf->SetFillColor(175);
         // Se establece la fuente para el nombre de la categoría.
-        $pdf->SetFont('Times', 'B', 12);
+        $pdf->SetFont('Times', 'B', 11);
         // Se imprime una celda con el nombre de la categoría.
         $pdf->Cell(0, 10, utf8_decode('Tipo de Bebidas:  '.$rowBebida['tipo_bebida']), 1, 1, 'C', 1);
         // Se establece la categoría para obtener sus productos, de lo contrario se imprime un mensaje de error.
@@ -26,34 +26,32 @@ if ($dataBebidas = $bebida->readAll()) {
                 // Se establece un color de relleno para los encabezados.
                 $pdf->SetFillColor(225);
                 // Se establece la fuente para los encabezados.
-                $pdf->SetFont('Times', 'B', 11);
+                $pdf->SetFont('Times', 'B', 12);
                 // Se imprimen las celdas con los encabezados.
-                $pdf->Cell(40, 10, utf8_decode('Bebida'), 1, 0, 'C', 1);
-                $pdf->Cell(40, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
-                $pdf->Cell(30, 10, utf8_decode('Tipo'), 1, 0, 'C', 1);
-                $pdf->Cell(46, 10, utf8_decode('Precio'), 1, 0, 'C', 1);
-                
-                
+                $pdf->Cell(33, 10, utf8_decode('Bebida'), 1, 0, 'C', 1);
+                $pdf->Cell(90, 10, utf8_decode('Descripción'), 1, 0, 'C', 1);
+                $pdf->Cell(46, 10, utf8_decode('Tipo'), 1, 0, 'C', 1);
+                $pdf->Cell(17, 10, utf8_decode('Precio'), 1, 1, 'C', 1);       
                 // Se establece la fuente para los datos de los productos.
                 $pdf->SetFont('Times', '', 11);
                 // Se recorren los registros ($dataProductos) fila por fila ($rowProducto).
                 foreach ($dataBebidass as $rowBebida) {
                     // Se imprimen las celdas con los datos de los productos.
-                    $pdf->Cell(40, 10, utf8_decode($rowBebida['nombre_bebida']), 1, 0);
-                    $pdf->Cell(40, 10, utf8_decode($rowBebida['descripcion']), 1, 0);
-                    $pdf->Cell(30, 10, utf8_decode($rowBebida['tipo_bebida']), 1, 0);
-                    $pdf->Cell(46, 10, utf8_decode($rowBebida['precio']), 1, 0);
+                    $pdf->Cell(33, 10, utf8_decode($rowBebida['nombre_bebida']), 1, 0);
+                    $pdf->Cell(90, 10, utf8_decode($rowBebida['descripcion']), 1, 0);
+                    $pdf->Cell(46, 10, utf8_decode($rowBebida['tipo_bebida']), 1, 0);
+                    $pdf->Cell(17, 10, utf8_decode($rowBebida['precio']), 1, 1);
                 }
                 // Se imprimen los mensajes de errores
             } else {
-                $pdf->Cell(0, 10, utf8_decode('No hay bebidas con este tipo de debidas'), 1, 0);
+                $pdf->Cell(0, 10, utf8_decode('No hay bebidas con este tipo de debidas'), 1, 1);
             }
         } else {
-            $pdf->Cell(0, 10, utf8_decode('Bebida incorrecta o Inexistente'), 1, 0);
+            $pdf->Cell(0, 10, utf8_decode('Bebida incorrecta o Inexistente'), 1, 1);
         }
     }
 } else {
-    $pdf->Cell(0, 10, utf8_decode('No hay bebidas para mostrar'), 1, 0);
+    $pdf->Cell(0, 10, utf8_decode('No hay bebidas para mostrar'), 1, 1);
 }
 
 // Se envía el documento al navegador y se llama al método Footer()

@@ -160,7 +160,7 @@
         {
             $sql = 'SELECT nombre_bebida, descripcion, tipo_bebida, precio
             FROM bebidas INNER JOIN tipo_bebidas USING(id_tipo_bebida) 
-            where id_bebida = ?
+            where id_tipo_bebida = ?
             ORDER BY tipo_bebida asc';
             $params = array($this->id);
             return Database::getRows($sql, $params);
