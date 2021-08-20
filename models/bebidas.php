@@ -1,5 +1,5 @@
 <?php
-    class bebidas extends Validator{
+    class Bebidas extends Validator{
         private $id;
         private $nombre;
         private $desc;
@@ -50,6 +50,7 @@
                 return false;
             }
         }
+
         public function setPrecio($value){
 
             if ($this->validateMoney($value)) {
@@ -97,23 +98,25 @@
         {
             return $this->img;
         }
+
         public function getRuta(){
             return $this->ruta;
         }
 
 
         public function readAll() {
-            $sql = 'SELECT b.id_bebida,b.nombre_bebida,b.descripcion,b.precio, b.id_tipo_bebida,t.tipo_bebida,b.img FROM bebidas b ,tipo_bebidas t
-            WHERE b.id_tipo_bebida = t.id_tipo_bebida';
+            $sql = 'SELECT b.id_bebida,b.nombre_bebida,b.descripcion,b.precio, b.id_tipo_bebida,t.tipo_bebida,b.img 
+                    FROM bebidas b ,tipo_bebidas t
+                    WHERE b.id_tipo_bebida = t.id_tipo_bebida';
             $params = null;
             return dataBase::getRows($sql, $params);
         }
 
         public function readOne($value) {
             $sql = 'SELECT b.id_bebida,b.nombre_bebida,b.descripcion,b.precio, b.id_tipo_bebida,t.tipo_bebida,b.img
-            FROM bebidas b ,tipo_bebidas t
-            WHERE b.id_tipo_bebida = t.id_tipo_bebida
-            AND b.id_bebida = ?';
+                    FROM bebidas b ,tipo_bebidas t
+                    WHERE b.id_tipo_bebida = t.id_tipo_bebida
+                    AND b.id_bebida = ?';
             $params = array($value);
             return dataBase::getRows($sql, $params);
         }
@@ -121,7 +124,7 @@
         public function createRow(){
             try{
                 $sql = 'INSERT INTO bebidas(nombre_bebida,descripcion,precio,id_tipo_bebida,img)
-                VALUES (?,?,?,?,?)';
+                        VALUES (?,?,?,?,?)';
                 $params = array($this->nombre, $this->desc, $this->precio,$this->tipo,$this->img);
                 return dataBase::executeRow($sql, $params);
             } catch (Exception $error){
@@ -133,8 +136,8 @@
         public function updateImg($id){
             try{
                 $sql = 'UPDATE bebidas
-                SET nombre_bebida = ?,descripcion = ?,precio = ?,id_tipo_bebida = ?,img =?
-                WHERE id_bebida = ?';
+                        SET nombre_bebida = ?,descripcion = ?,precio = ?,id_tipo_bebida = ?,img =?
+                        WHERE id_bebida = ?';
                 $params = array($this->nombre, $this->desc, $this->precio,$this->tipo,$this->img,$id);
                 return dataBase::executeRow($sql, $params);
             } catch (Exception $error){
@@ -146,8 +149,8 @@
         public function update($id){
             try{
                 $sql = 'UPDATE bebidas
-                SET nombre_bebida = ?,descripcion = ?,precio = ?,id_tipo_bebida = ?
-                WHERE id_bebida = ?';
+                        SET nombre_bebida = ?,descripcion = ?,precio = ?,id_tipo_bebida = ?
+                        WHERE id_bebida = ?';
                 $params = array($this->nombre, $this->desc, $this->precio,$this->tipo,$id);
                 return dataBase::executeRow($sql, $params);
             } catch (Exception $error){
@@ -155,15 +158,21 @@
                 die("Error al update datos, acconunt/Models: ".$error ->getMessage()); 
             }
         }
-    
-        public function readBebidastipo()
+
+        public function readTipos() {
+            $sql = 'SELECT id_tipo_bebida, tipo_bebida 
+                    FROM tipo_bebidas';
+            $params = null;
+            return dataBase::getRows($sql, $params);
+        }
+
+        public function readBebidasTipo()
         {
             $sql = 'SELECT nombre_bebida, descripcion, tipo_bebida, precio
-            FROM bebidas INNER JOIN tipo_bebidas USING(id_tipo_bebida) 
-            where id_bebida = ?
-            ORDER BY tipo_bebida asc';
-            $params = array($this->id);
+                    FROM bebidas INNER JOIN tipo_bebidas USING(id_tipo_bebida) 
+                    WHERE id_tipo_bebida = ?
+                    ORDER BY tipo_bebida ASC';
+            $params = array($this->tipo);
             return Database::getRows($sql, $params);
         }
     }
-?>
