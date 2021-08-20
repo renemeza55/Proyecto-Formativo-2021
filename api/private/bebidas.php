@@ -104,6 +104,17 @@
                         $result['exception'] = 'El nombre de la bebida es incorecto';
                     }
                     break;
+                    case 'Bebidamascara':
+                        if ($result['dataset'] = $model->Bebidamascara()) {
+                            $result['status'] = 1;
+                        } else {
+                            if (Database::getException()) {
+                                $result['exception'] = Database::getException();
+                            } else {
+                                $result['exception'] = 'No hay registros';
+                            }
+                        }
+                        break;
                 default:
                     $result['exception'] = 'Acción no disponible dentro de la sesión';
             }

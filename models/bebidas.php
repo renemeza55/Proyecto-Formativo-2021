@@ -175,4 +175,14 @@
             $params = array($this->tipo);
             return Database::getRows($sql, $params);
         }
+        public function Bebidamascara()
+        {
+            // Se hace la consullta para llevar a cabo la acción
+            $sql = 'SELECT nombre_bebida, precio from bebidas order by precio desc limit 10';
+            $params = null;
+            return Database::getRows($sql, $params);
+        }
+    
     }
+
+   
