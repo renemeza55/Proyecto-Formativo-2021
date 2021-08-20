@@ -104,6 +104,18 @@
                         $result['exception'] = 'El nombre del Platillo es incorecto';
                     }
                     break;
+ 
+                    case 'Platillomascaro':
+                        if ($result['dataset'] = $model->Platillomascaro()) {
+                            $result['status'] = 1;
+                        } else {
+                            if (Database::getException()) {
+                                $result['exception'] = Database::getException();
+                            } else {
+                                $result['exception'] = 'No hay registros';
+                            }
+                        }
+                        break;
                 default:
                     $result['exception'] = 'Acción no disponible dentro de la sesión';
             }
@@ -121,5 +133,6 @@
     } else {
         print(json_encode('Recurso no disponible'));
     }
-    
-?>
+    ?>
+
+   

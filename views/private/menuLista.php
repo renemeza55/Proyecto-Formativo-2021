@@ -93,5 +93,5 @@ Dashboard_Page::headerTemplate('Menú Lista');
     ?>
 <?php
 // Se imprime la plantilla del pie enviando el nombre del controlador para la página web.
-Dashboard_Page::footerTemplate('menuLista');
+Dashboard_Page::footerTemplate('menuLista.js');
 ?>

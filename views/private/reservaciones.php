@@ -70,5 +70,5 @@ Dashboard_Page::headerTemplate('Administrar reservaciones');
     </div>
 <?php
 // Se imprime la plantilla del pie enviando el nombre del controlador para la página web.
-Dashboard_Page::footerTemplate('reservaciones');
+Dashboard_Page::footerTemplate('reservaciones.js');
 ?>

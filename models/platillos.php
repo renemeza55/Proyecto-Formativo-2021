@@ -110,6 +110,16 @@
             return dataBase::getRows($sql, $params);
         }
 
+        public function readAll2(){
+            $sql ='SELECT id_tipo_plt,tipo_platillo
+            FROM tipo_platillos';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
+
+
+        
+
         public function readOne($value) {
             $sql = 'SELECT p.id_platillo,p.nombre_platillo,p.precio,p.descripcion,p.id_tipo_platillos,t.tipo_platillo,p.img
             FROM platillos p, tipo_platillos t
@@ -156,5 +166,23 @@
                 die("Error al update datos, acconunt/Models: ".$error ->getMessage()); 
             }
         }
+        public function Platillomascaro()
+    {
+        // Se hace la consullta para llevar a cabo la acción
+        $sql = 'SELECT nombre_platillo, precio from platillos order by precio desc limit 10';
+        $params = null;
+        return Database::getRows($sql, $params);
     }
-?>
+
+    public function readPlatillotipo()
+    {
+        $sql = 'SELECT nombre_platillo,descripcion,precio,tipo_platillo 
+        FROM platillos pl,tipo_platillos tp where tp.id_tipo_plt=pl.id_tipo_platillos and tp.id_tipo_plt=? ';
+        $params = array($this->id);
+        return Database::getRows($sql, $params);
+    }
+}
+
+
+    
+

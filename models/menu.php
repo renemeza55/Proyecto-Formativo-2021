@@ -80,6 +80,14 @@
             return dataBase::getRows($sql, $params);
         }
 
+        public function readAll() {
+            $sql = 'SELECT * FROM menu_desc';
+            $params = null;
+            return dataBase::getRows($sql, $params);
+        }
+
+        
+
         public function readAllMenuPublic() {
             $sql = 'SELECT * FROM menu ORDER BY fecha DESC LIMIT 1;';
             $params = null;
@@ -150,6 +158,14 @@
 
                 die("Error al update datos, acconunt/Models: ".$error ->getMessage()); 
             }
+        }
+
+        public function readMenuplatillo()
+        {
+            $sql = 'SELECT pl.nombre_platillo , pl.descripcion, me.fecha 
+            FROM platillos pl , menu_desc men,menu me where men.id_menu=me.id_menu  and men.id_platillos=pl.id_platillo and fecha=?';
+            $params = array($this->fecha);
+            return Database::getRows($sql, $params);
         }
 
         public function delete($id){

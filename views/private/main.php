@@ -14,9 +14,14 @@ Dashboard_Page::headerTemplate('Bienvenidos');
         <canvas id="chart1"></canvas>
     </div>
     <div class="col s12 m6">
-        <!-- Se muestra una gráfica de pastel con el porcentaje de productos por categoría -->
+        <!-- Se muestra una gráfica  con la cantidad de productos por categoría -->
         <canvas id="chart2"></canvas>
     </div>
+    <div class="col s12 m6">
+        <!-- Se muestra una gráfica de pastel con el porcentaje de productos por categoría -->
+        <canvas id="chart4"></canvas>
+    </div>
+
 </div>
 <!-- Importación del archivo para generar gráficas en tiempo real. Para más información https://www.chartjs.org/ -->
 <script type="text/javascript" src="../../resources/js/chart.js"></script>

@@ -85,5 +85,5 @@ Dashboard_Page::headerTemplate('Administrar bitacora');
     </div>
 <?php
 // Se imprime la plantilla del pie enviando el nombre del controlador para la página web.
-Dashboard_Page::footerTemplate('bitacora');
+Dashboard_Page::footerTemplate('bitacora.js');
 ?>

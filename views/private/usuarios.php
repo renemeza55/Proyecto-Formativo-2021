@@ -92,5 +92,5 @@ Dashboard_Page::headerTemplate('Administrar usuarios');
     </div>
 <?php
 // Se imprime la plantilla del pie enviando el nombre del controlador para la página web.
-Dashboard_Page::footerTemplate('usuarios');
+Dashboard_Page::footerTemplate('usuarios.js');
 ?>

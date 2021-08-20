@@ -20,6 +20,7 @@ Dashboard_Page::headerTemplate('Administrar menú');
         </form>
         <a onClick="insertMenu();" class="waves-effect waves-light btn">
             <i class="material-icons left">add</i>Nuevo
+            <a href="../../app/reports/private/menu_fecha.php" target="_blank" class="btn waves-effect amber tooltipped" data-tooltip="Reporte de Menu por platillos"><i class="material-icons">assignment</i></a>
         </a>
         <table class="responsive-table highlight">
             <thead>
@@ -66,5 +67,5 @@ Dashboard_Page::headerTemplate('Administrar menú');
     </div>
 <?php
 // Se imprime la plantilla del pie enviando el nombre del controlador para la página web.
-Dashboard_Page::footerTemplate('menu');
+Dashboard_Page::footerTemplate('menu.js');
 ?>
