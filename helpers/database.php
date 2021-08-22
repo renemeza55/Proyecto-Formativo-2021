@@ -7,9 +7,9 @@ class dataBase{
 
     private static function connect(){
         $server = 'localhost';
-        $database = 'MamaFina3';
+        $database = 'MamaFina';
         $username = 'postgres';
-        $password = 'renemeza56';
+        $password = 'roelias138';
 
         self::$connection = new PDO('pgsql:host='.$server.';dbname='.$database.';port=5432', $username, $password);
     }

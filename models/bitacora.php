@@ -123,7 +123,48 @@
             }
         }
 
+        public function reporteCompleto(){
+            $sql = 'SELECT producto,precio_prodcuto,fecha_bitacora,proveedor
+            FROM bitacora_compras
+            INNER JOIN proveedores
+            ON bitacora_compras.id_proveedor = proveedores.id_proveedor
+            ORDER BY fecha_bitacora ASC';
+            $params = null;
+            return dataBase::getRows($sql, $params);
+        }
 
+        public function reportePorFecha($fech){
+            $sql = 'SELECT producto,precio_prodcuto,fecha_bitacora,proveedor
+            FROM bitacora_compras
+            INNER JOIN proveedores
+            ON bitacora_compras.id_proveedor = proveedores.id_proveedor
+            WHERE fecha_bitacora = ?
+            ORDER BY fecha_bitacora ASC';
+            $params = array($fech);
+            return dataBase::getRows($sql, $params);
+        }
+
+        public function reporteAntes($fech){
+            $sql = 'SELECT producto,precio_prodcuto,fecha_bitacora,proveedor
+            FROM bitacora_compras
+            INNER JOIN proveedores
+            ON bitacora_compras.id_proveedor = proveedores.id_proveedor
+            WHERE fecha_bitacora <= ?
+            ORDER BY fecha_bitacora ASC';
+            $params = array($fech);
+            return dataBase::getRows($sql, $params);
+        }
+
+        public function reporteBetween($max,$min){
+            $sql = 'SELECT producto,precio_prodcuto,fecha_bitacora,proveedor
+            FROM bitacora_compras
+            INNER JOIN proveedores
+            ON bitacora_compras.id_proveedor = proveedores.id_proveedor
+            WHERE fecha_bitacora BETWEEN ? AND ?
+            ORDER BY fecha_bitacora ASC';
+            $params = array($min,$max);
+            return dataBase::getRows($sql, $params);
+        }
 
     }
 ?>

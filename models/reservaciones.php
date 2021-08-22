@@ -223,6 +223,16 @@
             $params = array($this->id);
             return Database::getRows($sql, $params);
         }
+
+        public function reservacionPorTipo()
+        {
+            $sql = 'SELECT tipo_reserv, count(id_reservacion) cantidad from reservaciones 
+            INNER JOIN tipo_reserv
+            ON reservaciones.tipo = tipo_reserv.id_tipo_reserv
+            group by tipo_reserv order by tipo_reserv desc';
+            $params = null;
+            return Database::getRows($sql, $params);
+        }
     }
 
 ?>

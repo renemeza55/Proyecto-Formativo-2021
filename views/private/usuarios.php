@@ -23,6 +23,9 @@ Dashboard_Page::headerTemplate('Administrar usuarios');
         <a onClick="openModal();" class="modal-trigger waves-effect waves-light btn">
             <i class="material-icons left">add</i>Nuevo
         </a>
+        <a onClick="opnGrafic();" class="modal-trigger btn waves-effect amber">
+            <i class="material-icons left">assessment</i>Grafica de estado usuarios
+        </a>
         <table class="responsive-table highlight">
             <thead>
                 <tr>
@@ -37,10 +40,10 @@ Dashboard_Page::headerTemplate('Administrar usuarios');
             <tbody>
                 <?php
                     if(isset($_GET['search'])){
-                        table::tableSearchUsuario($_GET['search']);
+                        //table::tableSearchUsuario($_GET['search']);
                     }
                     else{
-                        table::tableUsuario();
+                        //table::tableUsuario();
                     }
                 ?>
             </tbody>
@@ -87,6 +90,17 @@ Dashboard_Page::headerTemplate('Administrar usuarios');
             </div>
         </div>
         <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        </div>
+    </div>
+
+    <div id="grafic" class="modal">
+        <div class="modal-content">
+            <div class="grafic-container">
+                <canvas id="chart1"></canvas>
+            </div>
+        </div>
+        <div class="modal-footer"> 
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
         </div>
     </div>

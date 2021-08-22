@@ -173,16 +173,61 @@
                     WHERE id_tipo_bebida = ?
                     ORDER BY tipo_bebida ASC';
             $params = array($this->tipo);
-            return Database::getRows($sql, $params);
+            return dataBase::getRows($sql, $params);
         }
         public function Bebidamascara()
         {
             // Se hace la consullta para llevar a cabo la acción
             $sql = 'SELECT nombre_bebida, precio from bebidas order by precio desc limit 10';
             $params = null;
-            return Database::getRows($sql, $params);
+            return dataBase::getRows($sql, $params);
         }
-    
+
+        public function bebidaBetween($max,$min){
+            $sql = 'SELECT id_bebida,nombre_bebida,descripcion,tipo_bebida,precio FROM bebidas
+            INNER JOIN tipo_bebidas
+            ON bebidas.id_tipo_bebida = tipo_bebidas.id_tipo_bebida
+            WHERE precio BETWEEN ? AND ?
+            ORDER BY precio ASC;';
+
+            $params = array($min,$max);
+
+            return dataBase::getRows($sql, $params);
+        }
+
+        public function bebidaMenorA($x){
+            $sql = 'SELECT id_bebida,nombre_bebida,descripcion,tipo_bebida,precio FROM bebidas
+            INNER JOIN tipo_bebidas
+            ON bebidas.id_tipo_bebida = tipo_bebidas.id_tipo_bebida
+            WHERE precio <= ?
+            ORDER BY precio ASC;';
+
+            $params = array($x);
+
+            return dataBase::getRows($sql, $params);
+        }
+
+        public function bebidaMayorA($x){
+            $sql = 'SELECT id_bebida,nombre_bebida,descripcion,tipo_bebida,precio FROM bebidas
+            INNER JOIN tipo_bebidas
+            ON bebidas.id_tipo_bebida = tipo_bebidas.id_tipo_bebida
+            WHERE precio >= ?
+            ORDER BY precio ASC;';
+
+            $params = array($x);
+
+            return dataBase::getRows($sql, $params);
+        }
+
+        public function bebidasReport(){
+            $sql = 'SELECT id_bebida,nombre_bebida,descripcion,tipo_bebida,precio FROM bebidas
+            INNER JOIN tipo_bebidas
+            ON bebidas.id_tipo_bebida = tipo_bebidas.id_tipo_bebida
+            ORDER BY precio ASC;';
+
+            $params = null;
+            return dataBase::getRows($sql, $params);
+        }
     }
 
    

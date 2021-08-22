@@ -25,6 +25,17 @@
                         }
                     }
                     break;
+                case 'graficaTipo':
+                    if ($result['dataset'] = $model->reservacionPorTipo()) {
+                        $result['status'] = 1;
+                    } else {
+                        if (Database::getException()) {
+                            $result['exception'] = Database::getException();
+                        } else {
+                            $result['exception'] = 'No hay registros';
+                        }
+                    }
+                    break;
                 case 'create':
 
                     $_POST = $model->validateForm($_POST);

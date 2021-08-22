@@ -22,6 +22,13 @@ Dashboard_Page::headerTemplate('Administrar menú');
             <i class="material-icons left">add</i>Nuevo
             <a href="../../app/reports/private/menu_fecha.php" target="_blank" class="btn waves-effect amber tooltipped" data-tooltip="Reporte de Menu por platillos"><i class="material-icons">assignment</i></a>
         </a>
+
+        <a onClick="opnGrafic();" class="modal-trigger btn waves-effect amber">
+            <i class="material-icons left">assessment</i>Grafica de productos en menu.
+        </a>
+        <a onClick="opnGrafic2();" class="modal-trigger btn waves-effect amber">
+            <i class="material-icons left">assessment</i>Grafica de Bebidas en menu.
+        </a>
         <table class="responsive-table highlight">
             <thead>
                 <tr>
@@ -62,6 +69,28 @@ Dashboard_Page::headerTemplate('Administrar menú');
             </div>
         </div>
         <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        </div>
+    </div>
+
+    <div id="grafic" class="modal">
+        <div class="modal-content">
+            <div class="grafic-container">
+                <canvas id="chart1"></canvas>
+            </div>
+        </div>
+        <div class="modal-footer"> 
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        </div>
+    </div>
+
+    <div id="grafic2" class="modal">
+        <div class="modal-content">
+            <div class="grafic-container">
+                <canvas id="chart2"></canvas>
+            </div>
+        </div>
+        <div class="modal-footer"> 
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
         </div>
     </div>

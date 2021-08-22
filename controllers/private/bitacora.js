@@ -60,3 +60,74 @@ document.getElementById('modal-form').addEventListener('submit', function (event
         console.log(error);
     });
 });
+
+
+//------------------------------------reportes
+
+function openReport(){
+    var Modalelem = document.getElementById('report');
+    var instance = M.Modal.init(Modalelem);
+    instance.open();
+    document.getElementById("report-form").reset();
+    document.getElementById('reportOption1').style.display ='none';
+    document.getElementById('reportOption2').style.display ='none';
+};
+
+function tipoReporte(x){
+    var tipoR1 = document.getElementById('tipoR1');
+    var tipoR2 = document.getElementById('tipoR2');
+    var tipoR3 = document.getElementById('tipoR3');
+
+    switch(x){
+        case 1:
+            tipoR1.checked = true;
+            tipoR2.checked = false;
+            tipoR3.checked = false;
+            document.getElementById('reportOption1').style.display ='none';
+            document.getElementById('reportOption2').style.display ='none';
+            break;
+        case 2:
+            tipoR1.checked = false;
+            tipoR2.checked = true;
+            tipoR3.checked = false;
+            document.getElementById('reportOption1').style.display ='block';
+            document.getElementById('reportOption2').style.display ='none';
+    
+            break;
+        case 3:
+            tipoR1.checked = false;
+            tipoR2.checked = false;
+            tipoR3.checked = true;
+            document.getElementById('reportOption1').style.display ='none';
+            document.getElementById('reportOption2').style.display ='block';
+            break;
+    }
+    
+}
+
+
+document.getElementById('report-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    var tipoR1 = document.getElementById('tipoR1');
+    var tipoR2 = document.getElementById('tipoR2');
+    var tipoR3 = document.getElementById('tipoR3');
+
+    if(tipoR1.checked == true){
+        window.location.href = "../../app/reports/private/bitacoras.php";
+    }
+    else if(tipoR3.checked == true){
+        var max = document.getElementById('maxR').value;
+        var min = document.getElementById('minR').value;
+        window.location.href = "../../app/reports/private/bitacoras.php?action=rango&max="+max+"&min="+min;
+    }
+    else if(tipoR2.checked == true){
+
+        var v = document.getElementById('f').value;
+        if(v != ''){
+            window.location.href = "../../app/reports/private/bitacoras.php?action=fecha&value="+v;
+        }
+        else{
+            sweetAlert(2, 'Ingrese una fecha por favor', null);
+        }
+    }
+});

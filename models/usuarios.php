@@ -254,4 +254,13 @@ class Usuarios extends Validator
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+    public function graficoEstado(){
+        $sql = 'SELECT estado_usuario, count(id_usuario) cantidad from usuarios 
+        INNER JOIN estado_usuario
+        ON usuarios.id_estado_usuario = estado_usuario.id_estado_usuario
+        group by estado_usuario order by estado_usuario desc';
+        $params = null;
+        return Database::getRows($sql, $params);
+    }
 }

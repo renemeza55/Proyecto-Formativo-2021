@@ -18,10 +18,10 @@ Dashboard_Page::headerTemplate('Administrar reservaciones');
                 </div>
             </div>
         </form>
-        <a onClick="openModal();" class="modal-trigger waves-effect waves-light btn">
-            <i class="material-icons left">add</i>Nuevo
-        </a>
         <a href="../../app/reports/private/reservaciones_ocasion.php" target="_blank" class="btn waves-effect amber tooltipped" data-tooltip="Reporte de reservaciones según ocasión"><i class="material-icons">assignment</i></a>
+        <a onClick="opnGrafic();" class="modal-trigger btn waves-effect amber">
+            <i class="material-icons left">assessment</i>Grafica de tipo reservaicion
+        </a>
         <table class="responsive-table highlight">
             <thead>
                 <tr>
@@ -62,6 +62,17 @@ Dashboard_Page::headerTemplate('Administrar reservaciones');
                         </button>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="modal-footer"> 
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        </div>
+    </div>
+
+    <div id="grafic" class="modal">
+        <div class="modal-content">
+            <div class="grafic-container">
+                <canvas id="chart1"></canvas>
             </div>
         </div>
         <div class="modal-footer"> 

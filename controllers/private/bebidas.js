@@ -59,3 +59,62 @@ document.getElementById('modal-form').addEventListener('submit', function (event
         console.log(error);
     });
 });
+
+
+//------------------------------------reportes
+
+function openReport(){
+    var Modalelem = document.getElementById('report');
+    var instance = M.Modal.init(Modalelem);
+    instance.open();
+    document.getElementById("report-form").reset();
+    document.getElementById('reportOption').style.display ='none';
+};
+
+function tipoReporte(x){
+    var tipoR1 = document.getElementById('tipoR1');
+    var tipoR2 = document.getElementById('tipoR2');
+    var tipoR3 = document.getElementById('tipoR3');
+
+    switch(x){
+        case 1:
+            tipoR1.checked = true;
+            tipoR2.checked = false;
+            tipoR3.checked = false;
+            document.getElementById('reportOption').style.display ='none';
+            break;
+        case 2:
+            tipoR1.checked = false;
+            tipoR2.checked = true;
+            tipoR3.checked = false;
+            document.getElementById('reportOption').style.display ='block';
+    
+            break;
+        case 3:
+            tipoR1.checked = false;
+            tipoR2.checked = false;
+            tipoR3.checked = true;
+            document.getElementById('reportOption').style.display ='none';
+            break;
+    }
+    
+}
+
+document.getElementById('report-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    var tipoR1 = document.getElementById('tipoR1');
+    var tipoR2 = document.getElementById('tipoR2');
+    var tipoR3 = document.getElementById('tipoR3');
+
+    if(tipoR1.checked == true){
+        window.location.href = "../../app/reports/private/bedidas.php";
+    }
+    else if(tipoR2.checked == true){
+        var max = document.getElementById('maxR').value;
+        var min = document.getElementById('minR').value;
+        window.location.href = "../../app/reports/private/bedidas.php?action=precio&max="+max+"&min="+min;
+    }
+    else if(tipoR3.checked == true){
+        window.location.href = "../../app/reports/private/bebidas_tipo.php";
+    }
+});

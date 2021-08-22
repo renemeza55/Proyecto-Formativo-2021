@@ -179,5 +179,25 @@
             }
         }
 
+        public function graficaTopPlatillos(){
+            $sql = 'SELECT nombre_platillo, count(id_menu_desc) cantidad from menu_desc 
+            INNER JOIN platillos
+            ON menu_desc.id_platillos = platillos.id_platillo
+            group by nombre_platillo order by nombre_platillo desc
+            LIMIT 10';
+            $params = null;
+            return dataBase::getRows($sql, $params);
+        }
+
+
+        public function graficaTopBebidas(){
+            $sql = 'SELECT nombre_bebida, count(id_menu_desc) cantidad from menu_desc 
+            INNER JOIN bebidas
+            ON menu_desc.id_bebida = bebidas.id_bebida
+            group by nombre_bebida order by nombre_bebida desc
+            LIMIT 10';
+            $params = null;
+            return dataBase::getRows($sql, $params);
+        }
     }
 ?>

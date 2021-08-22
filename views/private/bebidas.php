@@ -20,7 +20,9 @@ Dashboard_Page::headerTemplate('Administrar bebidas');
         </form>
         <a onClick="openModal();" class="modal-trigger waves-effect waves-light btn">
             <i class="material-icons left">add</i>Nuevo
-            <a href="../../app/reports/private/bebidas_tipo.php" target="_blank" class="btn waves-effect amber tooltipped" data-tooltip="Reporte de bebidas según tipo"><i class="material-icons">assignment</i></a>
+        </a>
+        <a onClick="openReport();" class="modal-trigger waves-effect waves-light amber btn">
+            <i class="material-icons left">assignment</i>Generar Reporte.
         </a>
         <table class="responsive-table highlight">
             <thead>
@@ -40,7 +42,7 @@ Dashboard_Page::headerTemplate('Administrar bebidas');
             </tbody>
         </table>
     </div>
-    <div id="modal" class="modal">
+    <div id="modal" class="modal"> 
         <div class="modal-content">
             <div class="row">
                 <h4 id="model-titel"></h4>
@@ -88,6 +90,52 @@ Dashboard_Page::headerTemplate('Administrar bebidas');
                             </button>
                         </div>
                     </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer"> 
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+        </div>
+    </div>
+
+    <div id="report" class="modal">
+        <div class="modal-content">
+            <div class="row">
+                <h4>Generar Reporte.</h4>
+                <p>Seleccione las opciones que desea que apreseca en el reporte</p>
+                <form id="report-form" class="col s12" enctype="multipart/form-data">
+                    <div class="row">
+                        <p>
+                            <label>
+                                <input id="tipoR1" type="checkbox" onclick="tipoReporte(1);"/>
+                                <span>Mostrar todo.</span>
+                            </label>
+                            &nbsp;
+                            <label>
+                                <input id="tipoR2" type="checkbox" onclick="tipoReporte(2);"/>
+                                <span>Filtrar por precio.</span>
+                            </label>
+                            &nbsp;
+                            <label>
+                                <input id="tipoR3" type="checkbox" onclick="tipoReporte(3);"/>
+                                <span>Filtrar por tipo.</span>
+                            </label>
+                        </p>
+                    </div>
+                    <div class="row" id="reportOption">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">local_grocery_store</i>
+                            <input id="minR" type="number" step="any" class="validate" value="" placeholder="Precio minimo">
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">monetization_on</i>
+                            <input id="maxR" type="number" step="any" class="validate" value="" placeholder="Precio maximo">
+                        </div>
+                        <p>Dejar un campo vacio, se entiende que no hay limite.</p>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit">Generar Reporte
+                        <i class="material-icons right">send</i>
+                    </button>
                 </form>
             </div>
         </div>

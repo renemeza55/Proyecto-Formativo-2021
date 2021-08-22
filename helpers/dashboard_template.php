@@ -112,13 +112,17 @@ class Dashboard_page{
             <script type="text/javascript" src="../../helpers/components.js"></script>
             <script type="text/javascript" src="../../controllers/private/account.js"></script>
             <script type="text/javascript" src="../../controllers/iniciar.js"></script>
-            <script type="text/javascript" src="../../controllers/private/'. $controller .'"></script>';
+            <script type="text/javascript" src="../../controllers/private/'. $controller .'"></script>
+            <!--  Importación del archivo para generar gráficas en tiempo real. Para más información https://www.chartjs.org/ -->
+                <script type="text/javascript" src="../../resources/js/chart.js"></script>';
         } else {
 
             $scripts = '<script type="text/javascript" src="../../resources/js/materialize.min.js"></script>
             <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
             <script type="text/javascript" src="../../helpers/components.js"></script>
-            <script type="text/javascript" src="../../controllers/private/index.js"></script>';
+            <script type="text/javascript" src="../../controllers/private/index.js"></script>
+            <!-- Importación del archivo para generar gráficas en tiempo real. Para más información https://www.chartjs.org/ -->
+                <script type="text/javascript" src="../../resources/js/chart.js"></script>';
         }
 
         print('

@@ -10,11 +10,22 @@ if (isset($_GET['action'])) {
     // Se instancia la clase correspondiente. 
     $usuario = new Usuarios;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
-    $result = array('status' => 0, 'error' => 0, 'message' => null, 'exception' => null);
+    $result = array('status' => 0, 'error' => 0, 'message' => null, 'exception' => null, 'dataset' => null );
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
     if (isset($_SESSION['id'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
+            case 'graficaEstado':
+                if ($result['dataset'] = $usuario->graficoEstado()) {
+                    $result['status'] = 1;
+                } else {
+                    if (Database::getException()) {
+                        $result['exception'] = Database::getException();
+                    } else {
+                        $result['exception'] = 'No hay registros';
+                    }
+                }
+                break;
             case 'logOut':
                 if (session_destroy()) {
                     $result['status'] = 1;
