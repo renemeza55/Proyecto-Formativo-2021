@@ -26,7 +26,7 @@ class Public_Page {
         <div class="navbar-fixed">
             <nav class="#bf360c deep-orange darken-4" role="navigation">
                 <div class="nav-wrapper">
-                    <a href="indexP.php" class="brand-logo"><img src="../../resources/img/logo.png" height="60"></a>
+                    <a href="indexP.php" class="brand-logo"><img src="../../resources/img/logo.png" height="50"></a>
                     <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="index.php">Inicio</a></li>
