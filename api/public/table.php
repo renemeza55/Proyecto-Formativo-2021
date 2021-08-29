@@ -24,7 +24,7 @@
                                     foreach($data as $data){
                                         print(
                                             '
-                                            <div class="col s6">
+                                            <div class="col s12 l4 m6">
                                                 <div class="card">
                                                     <div class="card-image waves-effect waves-block waves-light">
                                                         <img class="activator" src="../../resources/img/platillos/'.$data['img'].'">
@@ -46,7 +46,7 @@
                                     foreach($data2 as $data2){
                                         print(
                                             '
-                                            <div class="col s6">
+                                            <div class="col s12 l4 m6">
                                                 <div class="card">
                                                     <div class="card-image waves-effect waves-block waves-light">
                                                         <img class="activator" src="../../resources/img/bebidas/'.$data2['img'].'">
